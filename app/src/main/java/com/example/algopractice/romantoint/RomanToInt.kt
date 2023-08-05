@@ -29,7 +29,6 @@ class RomanToInt {
     fun romanToInt(s: String): Int {
 
         val addNumbers = Array<Int>(s.length){0}
-
         var prevInt = Int.MAX_VALUE
         var runningIndex = 0
         s.forEachIndexed { index, ch ->
