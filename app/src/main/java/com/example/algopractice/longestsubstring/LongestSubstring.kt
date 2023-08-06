@@ -31,22 +31,32 @@ class LongestSubstring {
     fun lengthOfLongestSubstring(s: String): Int {
 
         val length = s.length
+        val lastIndex = length - 1
         var firstPointer = 0
         var secondPointer = 0
         var longestSubString = ""
 
-        while (secondPointer < length) {
+        while (firstPointer <= lastIndex) {
 
-            val sub = s.substring(IntRange(firstPointer, secondPointer))
-            if (isUniqueCharacters(sub.toCharArray())) {
-                if (longestSubString.length < sub.length) {
-                    longestSubString = sub
+            secondPointer = firstPointer + longestSubString.length
+            while (secondPointer <= lastIndex) {
+
+                val sub = s.substring(IntRange(firstPointer, secondPointer))
+                if (isUniqueCharacters(sub.toCharArray())) {
+
+                    if (longestSubString.length < sub.length) {
+                        longestSubString = sub
+                    }
+                } else {
+                    break
                 }
-            } else {
-                firstPointer = secondPointer
+                secondPointer ++
             }
 
-            secondPointer++
+            if (longestSubString.length == s.length) {
+                return longestSubString.length
+            }
+            firstPointer ++
         }
 
         return longestSubString.length
