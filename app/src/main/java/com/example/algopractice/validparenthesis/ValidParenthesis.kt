@@ -34,61 +34,9 @@ Output: false
  */
 class ValidParenthesis {
 
+    // "[" "]" "([)]" "()[]{}" "({{{{}}}))"
     fun isValid(s: String): Boolean {
 
-        val bracketOpen = '('
-        val curlyOpen = '{'
-        val squareOpen = '['
-
-        val stack = Stack<Char>()
-        var isValid = true
-
-        s.forEach { ch ->
-
-            if (!isValid) {
-                return@forEach
-            }
-
-            when (ch) {
-                '(', '{', '[' -> {
-                    stack.add(ch)
-                }
-                ')' -> {
-                    stack.pop()?.let {
-
-                        if (it != bracketOpen) {
-                            isValid = false
-                        }
-                    } ?: kotlin.run {
-                        isValid = false
-                    }
-
-                }
-                '}' -> {
-                    stack.pop()?.let {
-
-                        if (it != curlyOpen) {
-                            isValid = false
-                        }
-                    } ?: kotlin.run {
-                        isValid = false
-                    }
-                }
-                ']' -> {
-
-                    stack.pop()?.let {
-
-                        if (it != squareOpen) {
-                            isValid = false
-                        }
-                    } ?: kotlin.run {
-                        isValid = false
-                    }
-                }
-                else -> { }
-            }
-        }
-
-        return isValid
+        return false
     }
 }

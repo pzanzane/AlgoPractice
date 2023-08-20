@@ -53,4 +53,49 @@ internal class ValidParenthesisTest {
         Truth.assertThat(result).isEqualTo(false)
 
     }
+
+    @Test
+    fun isValid_singleBrackets() {
+
+        // Assign
+        val validParenthesis = ValidParenthesis()
+        val parenthesis = "["
+
+        // Act
+        val result = validParenthesis.isValid(parenthesis)
+
+        // Assert
+        Truth.assertThat(result).isEqualTo(false)
+
+    }
+
+    @Test
+    fun isValid_singleCloseBrackets() {
+
+        // Assign
+        val validParenthesis = ValidParenthesis()
+        val parenthesis = "]"
+
+        // Act
+        val result = validParenthesis.isValid(parenthesis)
+
+        // Assert
+        Truth.assertThat(result).isEqualTo(false)
+
+    }
+
+    @Test
+    fun isValid_multipleOpenClosedBrackets() {
+
+        // Assign
+        val validParenthesis = ValidParenthesis()
+        val parenthesis = "({{{{}}}))"
+
+        // Act
+        val result = validParenthesis.isValid(parenthesis)
+
+        // Assert
+        Truth.assertThat(result).isEqualTo(false)
+
+    }
 }
