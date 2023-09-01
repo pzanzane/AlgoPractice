@@ -37,6 +37,10 @@ class ValidParenthesis {
     // "[" "]" "([)]" "()[]{}" "({{{{}}}))"
     fun isValid(s: String): Boolean {
 
+
+        val arr = IntArray(2)
+        arr[0] = 1
+        arr[1] = 2
         return false
     }
 }
